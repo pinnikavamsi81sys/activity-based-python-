@@ -1,11 +1,11 @@
-n = int(input("Enter number of households: "))
-for i in range(n):
-    units = int(input("Enter water units consumed: "))
-    bill = 100 + units * 2 if units <= 100 else 100 + 200 + (units - 100) * 5
-    if units > 200:
-        bill += 50
-    print("Water Bill:", bill)
-    if units > 200:
-        print("Excessive usage!")
-    else:
-        print("Normal usage")
+appliances = ["Fan", "TV", "AC"]
+total = 0
+for a in appliances:
+    readings = list(map(int, input(f"{a} units for 7 days: ").split()))
+    print(a, "weekly total:", sum(readings))
+    total += sum(readings)
+    for day in range(7):
+        if readings[day] > 10:
+            print("Day", day + 1, "high consumption:", a)
+print("Total weekly consumption:", total)
+print("Limit: 10 units per appliance per day")
