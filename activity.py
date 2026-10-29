@@ -1,12 +1,11 @@
-stock = {"Idly": 20, "Dosa": 15, "Juice": 10}
-price = {"Idly": 20, "Dosa": 40, "Juice": 30}
-sales = 0
-for i in range(int(input("Number of orders: "))):
-    item = input("Enter item: ").title()
-    qty = int(input("Enter quantity: "))
-    if item in stock and qty > 0 and qty <= stock[item]:
-        bill = qty * price[item]; sales += bill; stock[item] -= qty
-        print("Bill:", bill)
-    else: print("Item unavailable or insufficient stock")
-print("Total sales:", sales, "\nRemaining stock:", stock)
+venue = float(input("Enter venue cost: "))
+equipment = float(input("Enter equipment cost: "))
+catering = float(input("Enter catering cost per person: "))
+transport = float(input("Enter transport cost: "))
+cert = float(input("Enter certificate cost per person: "))
+sponsor = float(input("Enter sponsorship amount: "))
+fee = float(input("Enter registration fee per person: "))
+cost = venue + equipment + transport
+n = int((cost - sponsor) / (fee - catering - cert)) + 1
+print("Total cost for", n, "participants:", cost + n * (catering + cert), "\nBreak-even participants:", n, "\nSponsorship shortfall:", max(0, cost - sponsor))
 
