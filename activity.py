@@ -1,12 +1,12 @@
-n = int(input("Enter number of vehicles: "))
-d = float(input("Enter journey distance (km): "))
-p = float(input("Enter fuel price per litre: "))
-r = float(input("Enter reserve fuel (litres): "))
-costs = {}
-for i in range(n):
-    name = input("Vehicle name: ")
-    m = float(input("Mileage (km/litre): "))
-    fuel = d / m + r
-    costs[name] = fuel * p
-for name, cost in costs.items(): print(name, "Cost:", cost)
-print("Lowest cost:", min(costs, key=costs.get))
+stock = {"Idly": 20, "Dosa": 15, "Juice": 10}
+price = {"Idly": 20, "Dosa": 40, "Juice": 30}
+sales = 0
+for i in range(int(input("Number of orders: "))):
+    item = input("Enter item: ").title()
+    qty = int(input("Enter quantity: "))
+    if item in stock and qty > 0 and qty <= stock[item]:
+        bill = qty * price[item]; sales += bill; stock[item] -= qty
+        print("Bill:", bill)
+    else: print("Item unavailable or insufficient stock")
+print("Total sales:", sales, "\nRemaining stock:", stock)
+
